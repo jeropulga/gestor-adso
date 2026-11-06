@@ -5,43 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Gestor ADSO')</title>
     <style>
-        body {
-            max-width: 980px;
-            margin: 24px auto;
-            padding: 0 16px;
-            font-family: system-ui, sans-serif;
-        }
-
-        nav a {
-            margin-right: 12px;
-        }
-
-        .flash {
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: 8px;
-            background: #e6ffed;
-        }
-
-        .errors {
-            margin-bottom: 16px;
-            padding: 12px 16px;
-            border: 1px solid #b42318;
-            border-radius: 8px;
-            color: #7a271a;
-            background: #fef3f2;
-        }
-
-        label {
-            display: inline-block;
-            margin: 8px 0;
-        }
+        body { max-width: 1100px; margin: 24px auto; padding: 0 16px; font-family: Arial, sans-serif; color: #222; }
+        nav { margin-bottom: 24px; }
+        a, nav a { color: #006b3c; }
+        .flash { margin: 12px 0; padding: 10px; border: 1px solid #9bd3ae; background: #e8f7ee; }
+        .errors { margin: 12px 0; padding: 10px; border: 1px solid #e0aaaa; background: #fff0f0; }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; font-weight: bold; margin-bottom: 4px; }
+        input { padding: 7px; min-width: 260px; }
+        button, .button { display: inline-block; padding: 7px 12px; cursor: pointer; }
+        .toolbar { display: flex; gap: 16px; align-items: center; justify-content: space-between; margin: 16px 0; flex-wrap: wrap; }
+        .search-form { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th, td { border: 1px solid #d7d7d7; padding: 8px; text-align: left; }
+        th { background: #f3f3f3; }
+        .actions { white-space: nowrap; }
+        .actions form { display: inline; margin-left: 8px; }
+        .danger-button { color: #8b0000; }
+        .pagination { margin-top: 18px; }
+        .pagination svg { width: 18px; height: 18px; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="{{ route('aprendices.index') }}">Aprendices</a>
-    </nav>
+    <nav><a href="{{ route('aprendices.index') }}">Aprendices</a></nav>
 
     @if (session('ok'))
         <div class="flash" role="status">{{ session('ok') }}</div>

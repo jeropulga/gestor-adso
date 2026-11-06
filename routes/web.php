@@ -3,8 +3,8 @@
 use App\Http\Controllers\AprendizController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('aprendices.index');
-});
+Route::redirect('/', '/aprendices');
 
-Route::resource('aprendices', AprendizController::class);
+Route::resource('aprendices', AprendizController::class)
+    ->parameters(['aprendices' => 'aprendiz'])
+    ->except(['show']);
