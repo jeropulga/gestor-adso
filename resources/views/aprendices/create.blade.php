@@ -3,7 +3,7 @@
 @section('title', 'Crear aprendiz')
 
 @section('content')
-    <h1>Crear aprendiz</h1>
+    <h1 class="text-2xl font-bold">Crear aprendiz</h1>
 
     <form action="{{ route('aprendices.store') }}" method="POST">
         @include('aprendices._form', [
