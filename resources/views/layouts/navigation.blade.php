@@ -1,6 +1,9 @@
 <nav class="flex flex-wrap items-center gap-4 border-b pb-4 mb-6">
     @auth
         <a href="{{ route('aprendices.index') }}">Aprendices</a>
+        @can('manage-users')
+            <a href="{{ route('admin.users.index') }}">Usuarios</a>
+        @endcan
         <span>Hola, {{ auth()->user()->name }} ({{ auth()->user()->role }})</span>
         <a href="{{ route('profile.edit') }}">Perfil</a>
         <form method="POST" action="{{ route('logout') }}" class="inline">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AprendizController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Aprendiz;
@@ -40,4 +41,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('aprendices/{aprendiz}', [AprendizController::class, 'destroy'])
         ->middleware('can:delete,aprendiz')
         ->name('aprendices.destroy');
+
+    Route::middleware('can:manage-users')
+        ->prefix('admin')
+        ->name('admin.')
+        ->group(function () {
+            Route::resource('users', UserController::class)->except(['show']);
+        });
 });
